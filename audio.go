@@ -134,6 +134,17 @@ func NewAudio(buf *Buffer) *Audio {
 	return audio
 }
 
+// SetFormat sets audio format.
+func (a *Audio) SetFormat(format AudioFormat) {
+	a.format = format
+	a.samples.format = format
+}
+
+// Format returns audio format.
+func (a *Audio) Format() AudioFormat {
+	return a.format
+}
+
 // Reader returns samples reader.
 func (a *Audio) Reader() io.Reader {
 	switch a.format {
